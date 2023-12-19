@@ -1,0 +1,35 @@
+<section class="containerAdd">
+  <article class="addProduct">
+    <span (click)="router.navigateByUrl('products')">return</span>
+    <section class="tittle">
+      <h2>Formulario de Registro</h2>
+    </section>
+    <form class="grid" [formGroup]="productForm">
+      <section class="mainData">
+        <article class="inputData">
+          <label for="">ID:</label>
+          <input class="inputAdd" type="text" required formControlName="id">
+          <label for="">Descripción:</label>
+          <input class="inputAdd" type="text" required formControlName="description">
+          <label for="">Fecha Liberación</label>
+          <input class="inputAdd" type="date" required formControlName="date_release">
+        </article>
+        <article class="inputData">
+          <label for="">Nombre:</label>
+          <input class="inputAdd" type="text" required formControlName="name">
+          <label for="">Logo:</label>
+          <input class="inputAdd" type="text" required formControlName="logo">
+          <label for="">Fecha Revisión:</label>
+          <input class="inputAdd" type="date" required formControlName="date_restructuring">
+        </article>
+      </section>
+    </form>
+    <article class="actions">
+      <button class="btnClear" type="button" (click)="resetData()">Reiniciar</button>
+      <button class="btnSend" type="button" (click)="saveData()">Enviar datos</button>
+    </article>
+
+
+  </article>
+</section>
+

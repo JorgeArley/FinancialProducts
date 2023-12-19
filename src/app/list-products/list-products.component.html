@@ -2,7 +2,7 @@
   <nav class="nav">
     <div class="search">
       <input class="inputSearch" type="text" placeholder="Search...">
-      <button class="btnSearch" type="button">Agregar</button>
+      <button class="btnNew" type="button" (click)="router.navigateByUrl('new-product')">Agregar</button>
     </div>
   </nav>
   <article class="main">
@@ -27,9 +27,7 @@
           <td>{{product.date_release}}</td>
           <td>{{product.date_restructuring}}</td>
           <td>
-            <div class="btnAdd">
-              ...
-          </div>
+            <div class="btnAdd" (click)="editProduct(product.id)">...</div>
           </td>
         </tr>
 
@@ -38,6 +36,6 @@
     </table>
   </article>
   <article class="footer">
-    <p>5 Resultados</p>
+    <p>{{financialProducts.length}} Resultados</p>
   </article>
 </section>

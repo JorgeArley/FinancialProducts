@@ -2,11 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404Component } from './error404/error404.component';
 import { ListProductsComponent } from './list-products/list-products.component';
+import { NewFinancialProductComponent } from './new-financial-product/new-financial-product.component';
 
 const routes: Routes = [
   {
     path: 'products',
     component: ListProductsComponent
+  },
+  {
+    path: 'new-product',
+    component:NewFinancialProductComponent
+  },
+  {
+    path: 'edit/:id',
+    component:NewFinancialProductComponent
   },
   {
     path: '404',

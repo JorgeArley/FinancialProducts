@@ -1,0 +1,79 @@
+.containerAdd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.addProduct {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  padding: 0 30px;
+}
+
+.addProduct div {
+  padding: 25px 0;
+  background-color: white;
+}
+
+.tittle {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.381);
+}
+
+.mainData {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputData {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 40px;
+}
+
+
+.inputAdd {
+  border: 3px solid #80808038;
+  border-radius: 7px;
+  padding: 6px;
+  width: 90%;
+  height: 12px;
+  margin-bottom: 30px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30px;
+}
+.btnClear {
+  background-color: rgb(222, 235, 247);
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  font-weight: bold;
+  padding: 0 12px;
+}
+.btnSend {
+  background-color: rgb(5 33 60);
+  height: 40px;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 0 12px;
+}
+
+.btnSend:hover {
+  background-color: #c1c7da;
+  cursor: pointer;
+  color: gray;
+}
+.btnClear:hover {
+  background-color: #c1c7da;
+  cursor: pointer;
+  color: gray;
+}
