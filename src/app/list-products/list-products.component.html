@@ -1,0 +1,43 @@
+<section class="container">
+  <nav class="nav">
+    <div class="search">
+      <input class="inputSearch" type="text" placeholder="Search...">
+      <button class="btnSearch" type="button">Agregar</button>
+    </div>
+  </nav>
+  <article class="main">
+    <table class="productsTable">
+      <thead>
+        <tr class="tittle">
+          <th>Logo</th>
+          <th>Nombre del producto</th>
+          <th>Descripción</th>
+          <th>Fecha de liberación</th>
+          <th>Fecha de reestructuración</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of financialProducts" class="tittle">
+          <td>
+            <span class="logo">{{product.logo}}</span>
+          </td>
+          <td>{{product.name}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.date_release}}</td>
+          <td>{{product.date_restructuring}}</td>
+          <td>
+            <div class="btnAdd">
+              ...
+          </div>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </article>
+  <article class="footer">
+    <p>5 Resultados</p>
+  </article>
+</section>
