@@ -20,10 +20,9 @@ export class ListProductsComponent {
 
   getFinancialProducts() {
     if (this.productService.listProducts.length <= 0) {
-      console.log(this.productService.listProducts)
       this.productService.getFinancialProducts().subscribe((resp: any) => {
         this.financialProducts = resp;
-        this.productService.setArray(resp);
+        this.productService.setProducts(resp);
       })
     } else {
       this.financialProducts = this.productService.listProducts;
@@ -32,5 +31,20 @@ export class ListProductsComponent {
 
   editProduct(id: string) {
     this.router.navigate(['/edit/', id]);
+  }
+
+  deleteProduct(id: string) {
+    let eleToDel = this.financialProducts.findIndex(product => product.id === id);
+    if (eleToDel !== -1) {
+      this.financialProducts.splice(eleToDel, 1);
+    }
+  }
+
+  searchData(wordToSearch: string) {
+    if (!wordToSearch) {
+      this.getFinancialProducts();
+      return
+    }
+    this.financialProducts = this.financialProducts.filter((product) => product.name.includes(wordToSearch));
   }
 }

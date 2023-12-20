@@ -1,8 +1,16 @@
 <section class="container">
   <nav class="nav">
     <div class="search">
-      <input class="inputSearch" type="text" placeholder="Search...">
-      <button class="btnNew" type="button" (click)="router.navigateByUrl('new-product')">Agregar</button>
+      <input class="inputSearch"
+             type="text"
+             placeholder="Search..."
+             (keyup)="searchData(dataToFind.value)"
+             #dataToFind>
+      <button class="btnNew"
+              type="button"
+              (click)="router.navigateByUrl('new-product')">
+              Agregar
+      </button>
     </div>
   </nav>
   <article class="main">
@@ -14,6 +22,7 @@
           <th>Descripción</th>
           <th>Fecha de liberación</th>
           <th>Fecha de reestructuración</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -29,10 +38,9 @@
           <td>
             <div class="btnAdd" (click)="editProduct(product.id)">...</div>
           </td>
+          <td class="actionProduct" (click)="deleteProduct(product.id)">X</td>
         </tr>
-
       </tbody>
-
     </table>
   </article>
   <article class="footer">

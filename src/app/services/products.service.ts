@@ -29,8 +29,15 @@ export class ProductsService {
     return this.products
   }
 
-  setArray(array: any) {
-    this.products = array;
+  setProducts(product: any) {
+    this.products = product;
+  }
+
+  updateProductFinancial(data: any) {
+    let indice = this.products.findIndex(product => product.id === data.id);
+    if (indice !== -1) {
+      this.products[indice] = data;
+    }
   }
 
 

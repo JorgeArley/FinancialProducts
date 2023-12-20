@@ -1,6 +1,6 @@
 <section class="containerAdd">
   <article class="addProduct">
-    <span (click)="router.navigateByUrl('products')">return</span>
+    <button class="btn-home" (click)="router.navigateByUrl('products')">home</button>
     <section class="tittle">
       <h2>Formulario de Registro</h2>
     </section>
@@ -8,7 +8,7 @@
       <section class="mainData">
         <article class="inputData">
           <label for="">ID:</label>
-          <input class="inputAdd" type="text" required formControlName="id">
+          <input class="inputAdd" type="number" required formControlName="id" [readonly]="edit">
           <label for="">Descripción:</label>
           <input class="inputAdd" type="text" required formControlName="description">
           <label for="">Fecha Liberación</label>
@@ -18,18 +18,22 @@
           <label for="">Nombre:</label>
           <input class="inputAdd" type="text" required formControlName="name">
           <label for="">Logo:</label>
-          <input class="inputAdd" type="text" required formControlName="logo">
+          <input class="inputAdd" type="text" required formControlName="logo" maxlength="2" >
           <label for="">Fecha Revisión:</label>
           <input class="inputAdd" type="date" required formControlName="date_restructuring">
         </article>
       </section>
     </form>
+    <h4 class="inputError" *ngIf="productForm.invalid">faltan campos por diligenciar</h4>
     <article class="actions">
-      <button class="btnClear" type="button" (click)="resetData()">Reiniciar</button>
-      <button class="btnSend" type="button" (click)="saveData()">Enviar datos</button>
+      <button class="btnClear" type="button" [disabled]="productForm.invalid" (click)="resetData()">
+        Reiniciar
+      </button>
+      <button class="btnSend" type="button" [disabled]="productForm.invalid" (click)="saveData()">
+        <span *ngIf="edit"> Actualizar datos</span>
+        <span *ngIf="!edit"> Enviar datos</span>
+      </button>
     </article>
-
-
   </article>
 </section>
 

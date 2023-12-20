@@ -69,6 +69,8 @@
 }
 
 .logo {
+  min-height: 50px;
+  min-width: 50px;
   padding: 10px;
   margin-right: 25px;
   background-color: #c1c7da;
@@ -78,14 +80,21 @@
 }
 
 .btnAdd {
-  color         : grey;
-  display       : inline-block;
-  font-family : monospace;
-  margin      : 1rem;
-  padding-top : .3rem;
+  color: grey;
+  display: inline-block;
+  font-family: monospace;
+  margin: 1rem;
+  padding-top: .3rem;
   transform: rotate(-90deg);
 }
-.btnAdd:hover {
+
+.btnAdd:hover,
+.actionProduct:hover {
   cursor: pointer;
   color: black;
+}
+
+.actionProduct {
+  color: tomato;
+  font-weight: bold;
 }

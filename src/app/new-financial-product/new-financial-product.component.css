@@ -67,13 +67,24 @@
   padding: 0 12px;
 }
 
-.btnSend:hover {
+.btnSend:hover, .btnClear:hover, .btn-home:hover {
   background-color: #c1c7da;
   cursor: pointer;
   color: gray;
 }
-.btnClear:hover {
-  background-color: #c1c7da;
+
+.btn-home {
+  position: fixed;
+  top: 40px;
+  right: 20px;
+  padding: 10px;
+  background-color: #ddd;
+  color: black;
+  border: none;
   cursor: pointer;
-  color: gray;
+  border-radius: 5px;
+}
+
+.inputError {
+  color: red;
 }

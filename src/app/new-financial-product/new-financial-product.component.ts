@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
 import { FinancialProduct } from '../interfaces/FinancialP.interface';
@@ -11,7 +11,8 @@ import { FinancialProduct } from '../interfaces/FinancialP.interface';
 })
 export class NewFinancialProductComponent {
 
-  public product!: FinancialProduct;
+  public product!: FinancialProduct | undefined;
+  public edit: boolean = false;
 
   public productForm = new FormGroup({
     id: new FormControl(''),
@@ -29,8 +30,7 @@ export class NewFinancialProductComponent {
   ngOnInit(): void {
     if (!this.router.url.includes('edit')) return;
 
-
-    //edit data
+    this.edit = true;
     this.activatedRoute.params.subscribe(params => {
       this.getProductByID(params['id']);
       return;
@@ -38,8 +38,12 @@ export class NewFinancialProductComponent {
   }
 
   saveData() {
-    console.log("dato guardado")
-    this.productService.addProductFinancial(this.productForm.value)
+    if (this.edit) {
+      this.productService.updateProductFinancial(this.productForm.value);
+    } else {
+      this.productService.addProductFinancial(this.productForm.value);
+    }
+    this.router.navigateByUrl('products');
   }
 
   resetData() {
@@ -47,12 +51,12 @@ export class NewFinancialProductComponent {
   }
 
   getProductByID(id: string) {
-    this.productService.getFinancialProducts().subscribe((resp: any) => {
-      this.product = resp.find((product:any) => {
-        return product.id == id
+    if (this.productService.listProducts.length > 0) {
+      this.product = this.productService.listProducts.find((product:any) => {
+        return product.id == id;
       });
       this.productForm.reset(this.product);
-    });
+    }
   }
 
 }
